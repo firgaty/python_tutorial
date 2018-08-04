@@ -59,6 +59,53 @@ Now, within this CLI, are able to do a lot of things. Actually, everything you'r
 
 But, thanks to this tool we'll test a few things.
 
+# Variables
+
+## Introduction
+
+As for any programming language and maths, you can, and will, assign a certain value to a certain variable. A variable can be called anything as long as it's name starts by a letterand contains no special caracters. Also it must not be spelled like one of the few Python keywords.
+
+So it may be :
+
+```python
+var # OK
+var1 # OK
+a_long_var_name # OK
+aLongVarName # OK
+
+123var # not OK...
+213 # not OK...
+asdf/ade # not OK...
+```
+
+The **PEP** or _Python Enhancement Proposal_ indicates that the use of underscores "_" is preferable to the camelCase for writing anything that has multiple words in it and will always be writen in lower case letters, except for a few cases which we will cover later. So `a_long_var_name` will be used instead of `aLongVarName`.
+
+## Types
+
+There are numerous types of values to assign to a variable.
+
+```python
+123 # Integer or int
+1.23 # Floating pointor float
+
+# Booleans or bool
+True
+False
+
+# Strings or string
+"abcd"
+'abcd'
+"""abcd"""
+```
+
+If you assign a value to a var, you may know it's type with the function `type(var_to_evaluate)`
+
+``` python
+>>> i = 1
+>>> type(i)
+<class 'int'>
+```
+
 # Basic Operations
 
 ## Arithmetic Operators
@@ -93,28 +140,7 @@ Often, you'll need to compare two values. And these are the operators associated
 |>=| If the value of left operand is greater than or equal to the value of right operand, then condition becomes true.|(a >= b) is not true.|
 |<=| If the value of left operand is less than or equal to the value of right operand, then condition becomes true.|(a <= b) is true.|
 
-## Assignment Operators
-
-### Variables
-
-As for any programming language and maths, you can, and will, assign a certain value to a certain variable. A variable can be called anything as long as it's name starts by a letterand contains no special caracters.
-
-So it may be :
-
-```python
-var # OK
-var1 # OK
-a_long_var_name # OK
-aLongVarName # OK
-
-123var # not OK...
-213 # not OK...
-asdf/ade # not OK...
-```
-
-The **PEP** or _Python Enhancement Proposal_ indicates that the use of underscores "_" is preferable to the camelCase for writing anything that has multiple words in it and will always be writen in lower case letters, except for a few cases which we will cover later. So `a_long_var_name` will be used instead of `aLongVarName`.
-
-### operators
+## Assignment operators
 
 To assign a particular value to a variable or change it, these are the operators in python :
 
