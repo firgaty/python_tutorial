@@ -97,7 +97,7 @@ Often, you'll need to compare two values. And these are the operators associated
 
 ### Variables
 
-As for any programming language and maths, you can, and will, assign a certain value to a certain variable. A variable can be called anything as long as it has at least one letter in it's name and no special caracter.
+As for any programming language and maths, you can, and will, assign a certain value to a certain variable. A variable can be called anything as long as it's name starts by a letterand contains no special caracters.
 
 So it may be :
 
@@ -106,8 +106,8 @@ var # OK
 var1 # OK
 a_long_var_name # OK
 aLongVarName # OK
-123var # OK
 
+123var # not OK...
 213 # not OK...
 asdf/ade # not OK...
 ```
