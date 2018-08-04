@@ -18,7 +18,6 @@ Here's how I think we'll proceed :
   
 - Command line interpreter
 - Basic Operations
-- Caracter sets
 - if / else / elif
 - while loop
 - for loop
@@ -56,7 +55,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-Now, within this CLI, are able to do a lot of things. Actually, everything you're able to do in python can be done with this command line tool... If you have patiente and courage.
+Now, within this CLI, are able to do a lot of things. Actually, everything you're able to do in Python can be done with this command line tool... If you have patience and courage.
 
 But, thanks to this tool we'll test a few things.
 
@@ -64,7 +63,7 @@ But, thanks to this tool we'll test a few things.
 
 ## Arithmetic Operators
 
-In python, there's a set of operators, some common to other languages, others not quite so. They go as follows :
+In Python, there's a set of operators, some common to other languages, others not quite so. They go as follows :
 
 |Sign|Name|Comments|
 |-|-|-|
@@ -94,7 +93,41 @@ Often, you'll need to compare two values. And these are the operators associated
 |>=| If the value of left operand is greater than or equal to the value of right operand, then condition becomes true.|(a >= b) is not true.|
 |<=| If the value of left operand is less than or equal to the value of right operand, then condition becomes true.|(a <= b) is true.|
 
-# TODO
+## Assignment Operators
+
+### Variables
+
+As for any programming language and maths, you can, and will, assign a certain value to a certain variable. A variable can be called anything as long as it has at least one letter in it's name and no special caracter.
+
+So it may be :
+
+```python
+var # OK
+var1 # OK
+a_long_var_name # OK
+aLongVarName # OK
+123var # OK
+
+213 # not OK...
+asdf/ade # not OK...
+```
+
+The **PEP** or _Python Enhancement Proposal_ indicates that the use of underscores "_" is preferable to the camelCase for writing anything that has multiple words in it and will always be writen in lower case letters, except for a few cases which we will cover later. So `a_long_var_name` will be used instead of `aLongVarName`.
+
+### operators
+
+To assign a particular value to a variable or change it, these are the operators in python :
+
+|Operator| Name | Description | Example|
+|-|-|-|-|
+| = | Assign |Assigns values from right side operands to left side operand | `c = a + b` assigns value of `a + b` into `c` |
+| += | Add AND | It adds right operand to the left operand and assign the result to left operand | `c += a` is equivalent to `c = c + a` |
+| -= | Subtract AND | It subtracts right operand from the left operand and assign the result to left operand | `c -= a` is equivalent to `c = c - a` |
+| *= | Multiply AND | It multiplies right operand with the left operand and assign the result to left operand | `c *= a` is equivalent to `c = c * a` |
+| /= | Divide AND |It divides left operand with the right operand and assign the result to left operand | `c /= a` is equivalent to `c = c / a` |
+| %= | Modulus AND |It takes modulus using two operands and assign the result to left operand | `c %= a` is equivalent to `c = c % a` |
+| **= | Exponent AND | Performs exponential (power) calculation on operators and assign value to the left operand | `c **= a` is equivalent to `c = c ** a` |
+| //= | Floor Division | It performs floor division on operators and assign value to the left operand | `c //= a` is equivalent to `c = c // a` |
 
 # Conditions
 
@@ -102,15 +135,155 @@ Often, you'll need to compare two values. And these are the operators associated
 
 The `if` block is executed only IF the condition is met. That means the condition, at it's evaluation, must be `True`.
 
-![alt text](diagrams/if_block_dia_alpha.png "if")
+![if flowchart](diagrams/if_block_dia_alpha.png "if")
 
-In python, it's writen as follows :
+In Python, it's writen as follows :
 
 ```python
-if myCondition :
-    myInstructionInTheIfBlock
+if my_condition :
+    if_block_instruction
+```
+
+### Blocks
+
+A word must be said about how Python is structured.
+
+In the code above, you can see that the `if_block_instruction` is indented. There's a reason for that. In a C like language, a block of code would be delimited by curly brackets `{}` :
+
+```cpp
+if (condition) {
+    if_block_instruction;
+}
+
+not_if_block_instruction;
+```
+
+For Python, you don't use any brackets to delimit a block. You use indentation. The PEP precognizes the use of a TAB of 4 spaces but to be consistent. So in Python :
+
+```python
+if condition :
+    if_block_instruction
+    another_if_block_instruction
+
+not_if_block_instruction
 ```
 
 ## else
 
 The `else` block is executed IF the condition in the `if` statement evaluates to `False`.
+
+![else flowchart](diagrams/else_block_dia_alpha.png "else")
+
+For Python :
+
+```python
+if my_condition :
+    if_block_instruction
+else :
+    else_block_intruction
+```
+
+But what if I have more than 2 choices ? How do I implement that ? Well, you could use a code that looks like this :
+
+```python
+if first_condition :
+    some_code_1
+else :
+    if second_conditon :
+        some_code_2
+    else :
+        some_code_3
+```
+
+Here we have 3 choices and you could add far more by adding `if` statements in the last `else` statement. But it's tedious and relatively hideous. As for Python, some say that beautiful is better.
+
+## elif
+
+Here comes the `elif` statement. It's, if you have a keen eye, a contraction of `else` and `if`.
+
+> So, how do we use it ?
+
+Like this :
+
+```python
+if condition_1 :
+    some_code_1
+elif condition_2 :
+    some_code_2
+else :
+    some_code_3
+```
+
+And you can add as many `elif` statements as you want. One should also note that the ending `else` statement is always optional.
+
+# Loops 
+
+> Ok, great, but what if I want to do something multiple times, like count from 0 to 10 by adding 1 to a certain variable ? Do I need to write 10 different additions ?
+
+No, fortunatly. Let me introduce you to the fabulous world of loops ! The core of every single program since we are able to use them. There are 2 of them.
+
+## while
+
+The `while` loop is the most strait forward of them. It uses an implicit `if` statement and verifies if it's condition evaluates to `True` each time it wants to execute it's block.
+
+In Python :
+
+```python
+while condition :
+    while_block_instruction
+```
+
+Now, imagine we would like to count from 0 to 9 and print it on your screen.
+
+```python
+i = 0
+
+while i <= 10 :
+    print(i)
+    i += 1
+```
+
+Output :
+
+```bash
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+But you have to watch out for infinite loops, a never ending loop.
+
+Imagine that we forgot to add the `i += 1` instruction. In this case, i would have forever remained at `0` and the condition `i <= 10` forever `True`. So the loop would have gone on forever. It may be useful in peculiar cases, but in most not so much.
+
+## for
+
+For an iteration it's preferable to use the `for` loop. The `for` loop will iterate over a sequence.
+
+```python
+for i in range(a, b) :
+    do_stuff
+```
+
+For our problem if goes as follows :
+
+```python
+for i in range(0, 11) :
+    print(i)
+```
+
+The range will start at 0 and will end at 10.
+
+It may be simplified by :
+
+```python
+for i in range(11) :
+    print(i)
+```
