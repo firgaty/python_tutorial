@@ -19,8 +19,7 @@ Here's how I think we'll proceed :
 - Command line interpreter
 - Basic Operations
 - if / else / elif
-- while loop
-- for loop
+- Loops
 - Lists
 - functions
 - Strings
@@ -282,7 +281,6 @@ Output :
 7
 8
 9
-10
 ```
 
 But you have to watch out for infinite loops, a never ending loop.
