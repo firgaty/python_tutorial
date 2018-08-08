@@ -338,3 +338,49 @@ b = square(2) # b = 2 * 2 = 4
 c = square(a) # c = 4 * 4 = 16
 d = square(square(2)) # d = (2 * 2) * (2 * 2) = 16 
 ```
+
+## More than one...
+### Argument
+
+As writen before, you may have as many arguments as you want.
+
+```python
+def mul2 (x, y) :
+    return x * y
+
+def mul3 (x, y, z) :
+    return x * y * z
+```
+
+And the arguments may be of any type.
+
+```python
+def print_entry (str_entry_name, int_entry_value) :
+    print("The entry " + str_entry_name " has a value of " + str(int_entry_value))
+
+# Remember that the 'return' keyword is optional
+# This function doesn't return anything.
+```
+
+### Return value
+
+On thing that is possible in Python and isn't common for other languages is that you are able to return multiple objects.
+
+```python
+def euclidean_div (a, b) :
+    q = a // b
+    r = a % b
+    return q, r
+```
+
+So now, we are able to do this :
+
+```python
+>>> q, r = euclidean_div(10, 3)
+>>> print("Quotient : " + str(q) + "\nRemainder : " + str(r))
+Quotient : 3
+Remainder : 1
+```
+
+# Lists
+
