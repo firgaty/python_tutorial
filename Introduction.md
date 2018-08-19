@@ -19,8 +19,7 @@ Here's how I think we'll proceed :
 - Command line interpreter
 - Basic Operations
 - if / else / elif
-- while loop
-- for loop
+- Loops
 - Lists
 - functions
 - Strings
@@ -244,7 +243,7 @@ And you can add as many `elif` statements as you want. One should also note that
 
 # Loops 
 
-> Ok, great, but what if I want to do something multiple times, like count from 0 to 10 by adding 1 to a certain variable ? Do I need to write 10 different additions ?
+> Ok, great, but what if I want to do something multiple times, like count from 0 to 9 by adding 1 to a certain variable ? Do I need to write 10 different additions ?
 
 No, fortunatly. Let me introduce you to the fabulous world of loops ! The core of every single program since we are able to use them. There are 2 of them.
 
@@ -264,7 +263,7 @@ Now, imagine we would like to count from 0 to 9 and print it on your screen.
 ```python
 i = 0
 
-while i <= 10 :
+while i < 10 :
     print(i)
     i += 1
 ```
@@ -282,26 +281,25 @@ Output :
 7
 8
 9
-10
 ```
 
 But you have to watch out for infinite loops, a never ending loop.
 
-Imagine that we forgot to add the `i += 1` instruction. In this case, i would have forever remained at `0` and the condition `i <= 10` forever `True`. So the loop would have gone on forever. It may be useful in peculiar cases, but in most not so much.
+Imagine that we forgot to add the `i += 1` instruction. In this case, i would have forever remained at `0` and the condition `i < 10` forever `True`. So the loop would have gone on forever. It may be useful in peculiar cases, but in most not so much.
 
 ## for
 
 For an iteration it's preferable to use the `for` loop. The `for` loop will iterate over a sequence.
 
 ```python
-for i in range(a, b) :
+for i in sequence :
     do_stuff
 ```
 
-For our problem if goes as follows :
+For our problem it goes as follows :
 
 ```python
-for i in range(0, 11) :
+for i in range(0, 10) :
     print(i)
 ```
 
@@ -310,6 +308,79 @@ The range will start at 0 and will end at 10.
 It may be simplified by :
 
 ```python
-for i in range(11) :
+for i in range(10) :
     print(i)
 ```
+
+# Functions
+
+## What it's all about
+
+Suppose you have to do the same thing at different times in your program. Let's take for example a case where you want to square a number. You may, each time you want to square a number, write the mathematical formula `x * x` or you could write it once in a function and call this function.
+
+```python
+def square (x) :
+    return x * x
+```
+
+Now, let's go over what's happening here.
+
+`def` stands for "define", then goes the function name `square` and then between parentheses all the arguments, here there's only `x`.
+
+Then, the second line. We have the `return` keyword that indicates what the function will return and it is followed by what is returned, here `x * x`.
+
+```python
+def square (x) :
+    return x * x
+
+a = 4
+b = square(2) # b = 2 * 2 = 4
+c = square(a) # c = 4 * 4 = 16
+d = square(square(2)) # d = (2 * 2) * (2 * 2) = 16 
+```
+
+## More than one...
+### Argument
+
+As writen before, you may have as many arguments as you want.
+
+```python
+def mul2 (x, y) :
+    return x * y
+
+def mul3 (x, y, z) :
+    return x * y * z
+```
+
+And the arguments may be of any type.
+
+```python
+def print_entry (str_entry_name, int_entry_value) :
+    print("The entry " + str_entry_name " has a value of " + str(int_entry_value))
+
+# Remember that the 'return' keyword is optional
+# This function doesn't return anything.
+```
+
+### Return value
+
+On thing that is possible in Python and isn't common for other languages is that you are able to return multiple objects.
+
+```python
+def euclidean_div (a, b) :
+    q = a // b
+    r = a % b
+    return q, r
+```
+
+So now, we are able to do this :
+
+```python
+>>> q, r = euclidean_div(10, 3)
+>>> print("Quotient : " + str(q) + "\nRemainder : " + str(r))
+Quotient : 3
+Remainder : 1
+```
+
+# Lists
+
