@@ -312,6 +312,40 @@ for i in range(10) :
     print(i)
 ```
 
+## break
+
+It's not a loop but it breaks out of one. Let's say you need to have a loop that runs infinitly but at some point in that loop you want to stop it. Well, here's how you can do so :
+
+```python
+while True :
+    # Some stuff A.
+    break
+    # Some stuff B.
+```
+
+When Python reaches the break instruction it stops the loop and coninues on to the intruction that is after the loop. It's mostly used in the following way :
+
+```python
+while True :
+    # Some stuff
+    if my_condition :
+        break
+```
+
+## continue
+
+It works in the same way as the `break` keyword but it doesn't break the loop : it goes back to the beginning of it.
+
+```python
+while my_condition_1 :
+    # stuff A
+    if my_condition_2 :
+        continue
+    # stuff B
+```
+
+If Python reaches the `continue` instruction, it will not read the `B` block and go strait back back to the beginning of the loop.
+
 # Functions
 
 ## What it's all about
@@ -384,3 +418,4 @@ Remainder : 1
 
 # Lists
 
+WIP
